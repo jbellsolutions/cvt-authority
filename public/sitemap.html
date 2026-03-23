@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CVT Authority — Sitemap</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --white: #f5f3ee;
+    --orange: #ff5c00;
+    --steel: #1c1f24;
+    --steel-light: #2a2d34;
+    --muted: #7a7e88;
+    --border: rgba(255,255,255,0.08);
+    --green: #00c97a;
+    --blue: #4a9eff;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .header {
+    background: var(--steel);
+    padding: 40px 60px;
+    border-bottom: 3px solid var(--orange);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .header h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    letter-spacing: 1px;
+  }
+  .header h1 span { color: var(--orange); }
+  .header a {
+    color: var(--orange);
+    text-decoration: none;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: 1px solid rgba(255,92,0,0.3);
+    padding: 8px 16px;
+    transition: background 0.2s;
+  }
+  .header a:hover { background: rgba(255,92,0,0.1); }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 40px;
+  }
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 12px;
+  }
+  .divider {
+    height: 2px;
+    background: linear-gradient(90deg, var(--orange), transparent);
+    margin: 8px 0 32px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  th {
+    background: var(--orange);
+    color: var(--black);
+    text-align: left;
+    padding: 12px 16px;
+    font-size: 11px;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+    color: var(--muted);
+    vertical-align: top;
+  }
+  tr:hover td { background: rgba(255,92,0,0.04); color: var(--white); }
+  td:first-child { color: var(--white); font-weight: 500; }
+  td a {
+    color: var(--orange);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  td a:hover { text-decoration: underline; }
+
+  .badge {
+    display: inline-block;
+    padding: 3px 10px;
+    font-size: 10px;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .badge-primary { background: rgba(255,92,0,0.15); color: var(--orange); border: 1px solid rgba(255,92,0,0.3); }
+  .badge-green { background: rgba(0,201,122,0.15); color: var(--green); border: 1px solid rgba(0,201,122,0.3); }
+  .badge-blue { background: rgba(74,158,255,0.15); color: var(--blue); border: 1px solid rgba(74,158,255,0.3); }
+
+  .sub-section {
+    padding-left: 32px;
+    font-size: 13px;
+  }
+  .sub-section td { padding: 8px 16px; }
+  .sub-section td:first-child {
+    color: var(--muted);
+    font-weight: 400;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+  }
+
+  .footer {
+    padding: 40px 60px;
+    text-align: center;
+    background: var(--steel);
+    border-top: 2px solid var(--orange);
+  }
+  .footer p {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 14px;
+    letter-spacing: 4px;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 768px) {
+    .header { padding: 24px; flex-direction: column; gap: 16px; }
+    .container { padding: 40px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>CVT <span>Authority</span> &mdash; Sitemap</h1>
+  <a href="/">&larr; Back to Hub</a>
+</div>
+
+<div class="container">
+
+  <div class="section-label">Pages</div>
+  <div class="divider"></div>
+
+  <table>
+    <tr><th>Page</th><th>URL</th><th>Type</th></tr>
+    <tr>
+      <td>Project Hub (Home)</td>
+      <td><a href="/">/</a></td>
+      <td><span class="badge badge-blue">Navigation</span></td>
+    </tr>
+    <tr>
+      <td>Final Master Action Plan</td>
+      <td><a href="/master-plan.html">/master-plan.html</a></td>
+      <td><span class="badge badge-primary">Primary</span></td>
+    </tr>
+    <tr>
+      <td>Original Business Plan</td>
+      <td><a href="/business-plan.html">/business-plan.html</a></td>
+      <td><span class="badge badge-green">Reference</span></td>
+    </tr>
+    <tr>
+      <td>Master Plan V1 (Pre-Review Draft)</td>
+      <td><a href="/master-plan-v1.html">/master-plan-v1.html</a></td>
+      <td><span class="badge badge-green">Archive</span></td>
+    </tr>
+    <tr>
+      <td>Sitemap (This Page)</td>
+      <td><a href="/sitemap.html">/sitemap.html</a></td>
+      <td><span class="badge badge-blue">Navigation</span></td>
+    </tr>
+  </table>
+
+  <div class="section-label" style="margin-top:48px;">Final Master Plan &mdash; Section Index</div>
+  <div class="divider"></div>
+  <p style="color:var(--muted); font-size:14px; margin-bottom:24px;">All sections are within <a href="/master-plan.html" style="color:var(--orange); text-decoration:none;">/master-plan.html</a>. Share this page with your mechanic for quick navigation.</p>
+
+  <table>
+    <tr><th>#</th><th>Section</th><th>Key Contents</th></tr>
+    <tr>
+      <td>01</td>
+      <td><strong>Vehicle Scope</strong></td>
+      <td>Tier 1 Jatco (Nissan, Jeep, Dodge, Mitsubishi) &bull; Tier 2 Subaru + Honda &bull; Tier 3 Toyota &bull; Removed: Sienna, Lexus RX, Camry, Matrix &bull; Years 2003-2020 &bull; NHTSA complaint data &bull; 13 class actions</td>
+    </tr>
+    <tr>
+      <td>02</td>
+      <td><strong>Parts Suppliers</strong></td>
+      <td>Transtar, Sonnax, Rostra, TransGo, Superior &bull; Part numbers &bull; JF011E rebuild cost: $1,219-$1,762 &bull; Tooling: $16,900 &bull; Startup inventory: $3,800-$5,500 &bull; Core charges &bull; Belt sourcing (OEM only)</td>
+    </tr>
+    <tr>
+      <td>03</td>
+      <td><strong>Vehicle Acquisition</strong></td>
+      <td>10 sources ranked &bull; Salvage title + BHPH conflict &bull; Landed cost vs bid price (+$600-$850) &bull; Transport costs &bull; Title verification (NMVTIS) &bull; Search keywords by platform &bull; Repair-to-buy scripts</td>
+    </tr>
+    <tr>
+      <td>04</td>
+      <td><strong>Legal, Contracts &amp; Insurance</strong></td>
+      <td>Dealer + finance licenses &bull; 9 contracts &bull; Insurance $9-22K/yr &bull; FTC CARS Rule &bull; Lemon law states &bull; As-is prohibition states &bull; AI marketing claims (FTC) &bull; Entity structure &bull; Environmental compliance</td>
+    </tr>
+    <tr>
+      <td>05</td>
+      <td><strong>In-House Financing</strong></td>
+      <td>RISC structure at 9.9% APR &bull; Realistic ROI: 28-41% &bull; Tiered down payments &bull; Collections Day 1-60 timeline &bull; GAP coverage &bull; Capital requirements &bull; Credit reporting framework &bull; GPS trackers &bull; Portfolio sale options</td>
+    </tr>
+    <tr>
+      <td>06</td>
+      <td><strong>Intake System &amp; Custom Plan</strong></td>
+      <td>Customer questionnaire &bull; 40+ DTC codes by unit &bull; 100-point health score &bull; 5-tier go/no-go matrix &bull; Equipment: $8,500-$13,000 &bull; 4-tier warranty policy &bull; Follow-up sequences &bull; Repair-or-buy decision tree</td>
+    </tr>
+    <tr>
+      <td>07</td>
+      <td><strong>Posting System</strong></td>
+      <td>7 free + 4 paid platforms &bull; Facebook dealer setup &bull; Craigslist risk &bull; 3 FB ad campaigns ($900-$1,400/mo) &bull; Retargeting ($225-$325/mo) &bull; SEO strategy &bull; Review generation &bull; Email/SMS sequences &bull; Content calendar &bull; Total: $1,500-$2,200/mo</td>
+    </tr>
+    <tr>
+      <td>08</td>
+      <td><strong>Website Blueprint</strong></td>
+      <td>6 pages &bull; DMS integration (Wayne Reaves/Frazer) &bull; AI diagnostic report mock &bull; Mobile-first specs &bull; Trust signals &bull; Chat/SMS &bull; Privacy/security &bull; Schema markup &bull; Analytics &bull; Offer estimation logic &bull; Spanish language plan</td>
+    </tr>
+    <tr>
+      <td>09</td>
+      <td><strong>Dashboard</strong></td>
+      <td>25+ KPIs with formulas &bull; DMS has no public API (workarounds) &bull; 7 alert triggers &bull; 9-stage retrofit Kanban &bull; Mechanic view &bull; Airtable+Retool Phase 1.5 &bull; QuickBooks integration &bull; 15-min daily routine &bull; Mobile access</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td><strong>Startup Budget</strong></td>
+      <td>Monthly burn: $16,100 &bull; Tools/equipment: $16,900 &bull; Lean minimum: $144K &bull; Recommended: $213K &bull; Break-even analysis &bull; 6-month cash flow model &bull; W-2 vs 1099 mechanic &bull; Growth funding (floorplan, LOC, SBA)</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td><strong>Execution Order</strong></td>
+      <td>Track A: repair shop (revenue Week 3) &bull; Track B: dealer license (background) &bull; Phase 0-3 with gates &bull; Risk register (7 risks) &bull; Revenue timeline &bull; Month 3-6 expansion plan &bull; Parallel work tracks</td>
+    </tr>
+  </table>
+</div>
+
+<div class="footer">
+  <p>CVT Authority &middot; Sitemap &middot; March 2026</p>
+</div>
+
+</body>
+</html>

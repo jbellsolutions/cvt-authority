@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CVT Authority — Master Action Plan</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --white: #f5f3ee;
+    --orange: #ff5c00;
+    --orange-dim: #cc4900;
+    --steel: #1c1f24;
+    --steel-light: #2a2d34;
+    --muted: #7a7e88;
+    --border: rgba(255,255,255,0.08);
+    --green: #00c97a;
+    --yellow: #ffd000;
+    --red: #ff4444;
+    --blue: #4a9eff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .hero {
+    background: var(--steel);
+    padding: 80px 60px 60px;
+    border-bottom: 3px solid var(--orange);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: 'PLAN';
+    position: absolute;
+    right: -20px;
+    top: -20px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 280px;
+    color: rgba(255,92,0,0.05);
+    line-height: 1;
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 8vw, 100px);
+    line-height: 0.95;
+    letter-spacing: 1px;
+    margin-bottom: 24px;
+  }
+  .hero h1 span { color: var(--orange); }
+  .hero-sub {
+    font-size: 18px;
+    color: var(--muted);
+    max-width: 700px;
+    line-height: 1.6;
+  }
+  .hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 32px;
+  }
+  .tag {
+    background: rgba(255,92,0,0.12);
+    border: 1px solid rgba(255,92,0,0.3);
+    color: var(--orange);
+    padding: 5px 14px;
+    font-size: 11px;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .section {
+    padding: 70px 60px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section:nth-child(even) { background: var(--steel); }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(32px, 5vw, 56px);
+    line-height: 1;
+    letter-spacing: 1px;
+    margin-bottom: 32px;
+  }
+  .section-title span { color: var(--orange); }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 32px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 32px; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 32px; }
+
+  .card {
+    background: var(--steel-light);
+    border: 1px solid var(--border);
+    padding: 28px;
+  }
+  .card-orange {
+    background: rgba(255,92,0,0.08);
+    border: 1px solid rgba(255,92,0,0.25);
+    padding: 28px;
+  }
+  .card-green {
+    background: rgba(0,201,122,0.08);
+    border: 1px solid rgba(0,201,122,0.25);
+    padding: 28px;
+  }
+  .card-red {
+    background: rgba(255,68,68,0.08);
+    border: 1px solid rgba(255,68,68,0.25);
+    padding: 28px;
+  }
+  .card-blue {
+    background: rgba(74,158,255,0.08);
+    border: 1px solid rgba(74,158,255,0.25);
+    padding: 28px;
+  }
+  .card h3, .card-orange h3, .card-green h3, .card-red h3, .card-blue h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 0.5px;
+    color: var(--orange);
+    margin-bottom: 12px;
+  }
+  .card-green h3 { color: var(--green); }
+  .card-red h3 { color: var(--red); }
+  .card-blue h3 { color: var(--blue); }
+  .card h4 {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    color: var(--white);
+  }
+  .card p, .card-orange p, .card-green p, .card-red p, .card-blue p { color: var(--muted); font-size: 14px; }
+
+  .usp-block {
+    background: var(--orange);
+    color: var(--black);
+    padding: 48px;
+    margin: 32px 0;
+  }
+  .usp-block h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(28px, 4vw, 48px);
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+  .usp-block p { font-size: 16px; font-weight: 500; max-width: 700px; }
+
+  ul.styled { list-style: none; margin-top: 16px; }
+  ul.styled li {
+    padding: 8px 0;
+    padding-left: 20px;
+    position: relative;
+    color: var(--muted);
+    font-size: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  ul.styled li::before {
+    content: '\2192';
+    position: absolute;
+    left: 0;
+    color: var(--orange);
+  }
+  ul.styled li:last-child { border-bottom: none; }
+  ul.styled li strong { color: var(--white); }
+
+  table { width: 100%; border-collapse: collapse; margin-top: 24px; }
+  th {
+    background: var(--orange);
+    color: var(--black);
+    text-align: left;
+    padding: 12px 16px;
+    font-size: 11px;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+    color: var(--muted);
+  }
+  tr:hover td { background: rgba(255,92,0,0.04); color: var(--white); }
+  td:first-child { color: var(--white); font-weight: 500; }
+
+  .badge {
+    display: inline-block;
+    padding: 3px 10px;
+    font-size: 10px;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .badge-green { background: rgba(0,201,122,0.15); color: var(--green); border: 1px solid rgba(0,201,122,0.3); }
+  .badge-orange { background: rgba(255,92,0,0.15); color: var(--orange); border: 1px solid rgba(255,92,0,0.3); }
+  .badge-yellow { background: rgba(255,208,0,0.15); color: var(--yellow); border: 1px solid rgba(255,208,0,0.3); }
+  .badge-red { background: rgba(255,68,68,0.15); color: var(--red); border: 1px solid rgba(255,68,68,0.3); }
+  .badge-blue { background: rgba(74,158,255,0.15); color: var(--blue); border: 1px solid rgba(74,158,255,0.3); }
+
+  .divider {
+    height: 2px;
+    background: linear-gradient(90deg, var(--orange), transparent);
+    margin: 8px 0 32px;
+  }
+
+  .callout {
+    margin-top: 24px;
+    padding: 20px 24px;
+    background: rgba(255,92,0,0.08);
+    border-left: 3px solid var(--orange);
+  }
+  .callout p { color: var(--white); font-size: 14px; }
+  .callout-green {
+    margin-top: 24px;
+    padding: 20px 24px;
+    background: rgba(0,201,122,0.08);
+    border-left: 3px solid var(--green);
+  }
+  .callout-green p { color: var(--white); font-size: 14px; }
+  .callout-red {
+    margin-top: 24px;
+    padding: 20px 24px;
+    background: rgba(255,68,68,0.08);
+    border-left: 3px solid var(--red);
+  }
+  .callout-red p { color: var(--white); font-size: 14px; }
+
+  .steps { margin-top: 32px; }
+  .step {
+    display: flex;
+    gap: 24px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+  .step:last-child { border-bottom: none; }
+  .step-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    color: var(--orange);
+    line-height: 1;
+    min-width: 60px;
+    opacity: 0.4;
+  }
+  .step-content h4 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .step-content p { color: var(--muted); font-size: 14px; }
+
+  .rev-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .rev-row:last-child { border-bottom: none; }
+  .rev-label { font-size: 14px; color: var(--muted); }
+  .rev-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: var(--green);
+    letter-spacing: 1px;
+  }
+
+  @media (max-width: 768px) {
+    .hero, .section { padding: 48px 24px; }
+    .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════════
+     HERO
+═════════════════════════════════════════════════════════ -->
+<div class="hero">
+  <div class="hero-eyebrow">Master Action Plan &middot; March 2026</div>
+  <h1>CVT <span>Authority</span><br>Action Plan</h1>
+  <p class="hero-sub">Everything needed to launch and run the business — suppliers, legal, financing, website, inventory management, daily posting system, intake process, and dashboard. One document. All actionable.</p>
+  <div class="hero-tags">
+    <span class="tag">Suppliers</span>
+    <span class="tag">Legal + Contracts</span>
+    <span class="tag">In-House Financing</span>
+    <span class="tag">Website + Inventory</span>
+    <span class="tag">Intake System</span>
+    <span class="tag">Daily Posting</span>
+    <span class="tag">Dashboard</span>
+    <span class="tag">Vehicle Coverage</span>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════
+     SECTION 1: VEHICLE SCOPE (NARROWED)
+═════════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-label">01 / Vehicle Scope — Narrowed &amp; Validated</div>
+  <div class="section-title">What We <span>Actually Sell</span></div>
+
+  <p style="color:var(--muted); max-width:700px; font-size:16px; margin-bottom:16px;">Research revealed some of the target vehicles don't have CVTs or don't have failure-prone CVTs. Here's the honest breakdown so we focus where the money is.</p>
+
+  <div class="section-label" style="margin-top:24px;">Tier 1 — Core Business (Jatco CVT — Highest Failure, Highest Demand)</div>
+  <div class="divider"></div>
+  <table>
+    <tr><th>Vehicle</th><th>Years</th><th>CVT Unit</th><th>Failure Rate</th><th>Supply</th></tr>
+    <tr><td>Nissan Altima 2.5L</td><td>2007–2016</td><td>JF011E / JF016E</td><td><span class="badge badge-red">High</span></td><td><span class="badge badge-green">Abundant</span></td></tr>
+    <tr><td>Nissan Rogue</td><td>2008–2016</td><td>JF011E / JF016E</td><td><span class="badge badge-red">High</span></td><td><span class="badge badge-green">Abundant</span></td></tr>
+    <tr><td>Nissan Sentra</td><td>2007–2016</td><td>JF011E / JF015E</td><td><span class="badge badge-red">High</span></td><td><span class="badge badge-green">Abundant</span></td></tr>
+    <tr><td>Nissan Versa</td><td>2012–2016</td><td>JF015E</td><td><span class="badge badge-red">High</span></td><td><span class="badge badge-green">Abundant</span></td></tr>
+    <tr><td>Nissan Murano</td><td>2007–2014</td><td>JF010E</td><td><span class="badge badge-orange">Medium-High</span></td><td><span class="badge badge-green">Abundant</span></td></tr>
+    <tr><td>Nissan Pathfinder</td><td>2013–2016</td><td>JF016E</td><td><span class="badge badge-orange">Medium-High</span></td><td><span class="badge badge-orange">Medium</span></td></tr>
+    <tr><td>Jeep Patriot / Compass</td><td>2007–2016</td><td>JF011E</td><td><span class="badge badge-red">High</span></td><td><span class="badge badge-green">Abundant</span></td></tr>
+    <tr><td>Mitsubishi Outlander / Lancer</td><td>2007–2016</td><td>JF011E</td><td><span class="badge badge-red">High</span></td><td><span class="badge badge-orange">Medium</span></td></tr>
+    <tr><td>Dodge Caliber</td><td>2007–2012</td><td>JF011E</td><td><span class="badge badge-red">High</span></td><td><span class="badge badge-orange">Medium</span></td></tr>
+  </table>
+
+  <div class="section-label" style="margin-top:40px;">Tier 2 — Expansion Line (Honda CVT — Moderate Failure, Good Volume)</div>
+  <div class="divider"></div>
+  <table>
+    <tr><th>Vehicle</th><th>Years</th><th>CVT Unit</th><th>Failure Rate</th><th>Notes</th></tr>
+    <tr><td>Honda Civic</td><td>2014–2016</td><td>Honda CVT</td><td><span class="badge badge-orange">Medium</span></td><td>Shudder + start clutch failures. Honda extended warranty on some.</td></tr>
+    <tr><td>Honda Accord 4-cyl</td><td>2013–2016</td><td>Honda CVT</td><td><span class="badge badge-yellow">Low-Medium</span></td><td>More reliable than Civic but not bulletproof. Bearing issues.</td></tr>
+  </table>
+
+  <div class="callout-green">
+    <p><strong>Honda is the logical next expansion.</strong> The 2014-2015 Civics have documented reliability problems and class-action history. These are now 10-12 years old — past warranty, owners looking for affordable independent repair. Different parts, different teardown, but same general CVT knowledge applies.</p>
+  </div>
+
+  <div class="section-label" style="margin-top:40px;">Tier 3 — Future / Low Priority (Toyota CVT — Low Failure)</div>
+  <div class="divider"></div>
+  <table>
+    <tr><th>Vehicle</th><th>Years</th><th>CVT Unit</th><th>Failure Rate</th><th>Notes</th></tr>
+    <tr><td>Toyota Corolla</td><td>2014–2016</td><td>Aisin K310/K311</td><td><span class="badge badge-yellow">Low</span></td><td>Most issues fixed with fluid change. Rarely needs rebuild.</td></tr>
+    <tr><td>Toyota Camry 4-cyl</td><td>2012–2016</td><td>Aisin K112</td><td><span class="badge badge-yellow">Low</span></td><td>Shudder TSB exists. Low catastrophic failure rate.</td></tr>
+    <tr><td>Toyota Matrix</td><td>2009–2013</td><td>Aisin K111</td><td><span class="badge badge-yellow">Low</span></td><td>Same unit as Corolla. Low failure volume.</td></tr>
+    <tr><td>Pontiac Vibe</td><td>2009–2010</td><td>Aisin K111</td><td><span class="badge badge-yellow">Low</span></td><td>Rebadged Matrix. Only 2 years. Negligible volume.</td></tr>
+  </table>
+
+  <div class="callout">
+    <p><strong>Toyota CVTs rarely fail catastrophically.</strong> They're well-engineered (Aisin). Most problems = fluid service, not rebuild. Not enough failure volume to build a repair business around. Keep them as "we can service these too" — don't promote hard.</p>
+  </div>
+
+  <div class="section-label" style="margin-top:40px;">Removed From Scope</div>
+  <div class="divider"></div>
+  <div class="grid-3">
+    <div class="card-red">
+      <h3>Toyota Sienna</h3>
+      <p><strong>No CVT.</strong> Uses conventional 6-speed automatic (U660E) across all 2007-2016 years. Not our market.</p>
+    </div>
+    <div class="card-red">
+      <h3>Lexus RX 350</h3>
+      <p><strong>No CVT.</strong> Uses conventional 5/6/8-speed automatic. The RX Hybrid uses an eCVT (electric motor + planetary gears) — completely different technology, no belt/chain.</p>
+    </div>
+    <div class="card-red">
+      <h3>Pontiac Vibe (pre-2009)</h3>
+      <p><strong>No CVT.</strong> 2007-2008 used conventional 4-speed auto. Only 2009-2010 had CVT option, and volume is negligible.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════
+     SECTION 2: SUPPLIERS
+═════════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-label">02 / Parts Suppliers — Wholesale Accounts to Open</div>
+  <div class="section-title">Where To <span>Source Parts</span></div>
+
+  <div class="section-label">Priority 1 — Open These Accounts Immediately</div>
+  <div class="divider"></div>
+
+  <table>
+    <tr><th>Supplier</th><th>What They Sell</th><th>Why Critical</th><th>Account Type</th></tr>
+    <tr><td>Transtar Industries</td><td>Full CVT rebuild kits, converters, bearings, solenoids, friction kits</td><td>Largest independent trans parts distributor. Your daily-order backbone. Carries Sonnax, Raybestos, Alto, Rostra.</td><td>Shop account, volume pricing, next-day delivery</td></tr>
+    <tr><td>Sonnax</td><td>Valve body correction kits, pressure regulator valves, bore repair kits</td><td>THE industry leader for CVT valve body fixes. Their JF011E TCC regulator valve kit is mandatory in every rebuild.</td><td>Through Transtar or direct authorized distributor</td></tr>
+    <tr><td>Rostra Precision Controls</td><td>Step motors, solenoids, pressure control solenoids, wiring harness kits</td><td>Best aftermarket step motors for Jatco. Step motor = critical failure point. Rostra = equal or better than OEM.</td><td>Shop account + distributor pricing</td></tr>
+    <tr><td>Nissan Dealer Wholesale</td><td>OEM push belts, chains, hard parts</td><td>Push belts and chains are OEM-only. No quality aftermarket alternative exists for the belt itself.</td><td>Dealer wholesale account</td></tr>
+  </table>
+
+  <div class="section-label" style="margin-top:32px;">Priority 2 — Open Within First 60 Days</div>
+  <div class="divider"></div>
+
+  <table>
+    <tr><th>Supplier</th><th>What They Sell</th><th>Notes</th></tr>
+    <tr><td>Alto Products</td><td>Friction kits, thrust washers at volume pricing</td><td>One of the largest trans friction suppliers. Volume discounts.</td></tr>
+    <tr><td>Raybestos / BorgWarner</td><td>Premium friction plate kits, steel plates</td><td>Premium alternative to Alto. OEM-grade.</td></tr>
+    <tr><td>Precision International</td><td>Full trans parts line, bearings, converters</td><td>Backup distributor. Sometimes has parts Transtar doesn't.</td></tr>
+    <tr><td>Exedy</td><td>OEM-grade torque converters</td><td>OEM supplier to Honda and some Nissan/Jatco apps.</td></tr>
+    <tr><td>Seal Aftermarket Products</td><td>Gasket/seal kits for all CVT units</td><td>Specialty in seals and gaskets. Needed for every rebuild.</td></tr>
+  </table>
+
+  <div class="section-label" style="margin-top:32px;">Priority 3 — When Expanding to Honda/Toyota</div>
+  <div class="divider"></div>
+
+  <table>
+    <tr><th>Supplier</th><th>What They Sell</th><th>Notes</th></tr>
+    <tr><td>Honda Dealer Wholesale</td><td>OEM Honda CVT chains, start clutch, bearings</td><td>Honda CVT parts are Honda-specific. Need dealer account.</td></tr>
+    <tr><td>Toyota Dealer Wholesale</td><td>OEM Aisin K-series chains, valve body parts</td><td>Toyota has robust dealer-to-shop wholesale program.</td></tr>
+  </table>
+
+  <div class="section-label" style="margin-top:32px;">Bearing Suppliers</div>
+  <div class="divider"></div>
+  <div class="grid-3">
+    <div class="card">
+      <h3>Koyo (JTEKT)</h3>
+      <p>OEM bearings for Jatco CVTs. The actual factory bearings. Available through industrial distributors or Transtar kits.</p>
+    </div>
+    <div class="card">
+      <h3>NSK Ltd.</h3>
+      <p>OEM for Toyota/Aisin CVTs. Available through industrial and automotive channels.</p>
+    </div>
+    <div class="card">
+      <h3>NTN Bearing</h3>
+      <p>Major OEM supplier to Japanese CVT manufacturers. Available through Transtar and industrial distributors.</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <p><strong>Critical supplier note:</strong> Push belts and chains are OEM-only items. There is no quality aftermarket push belt. The real aftermarket value is in valve body corrections (Sonnax), solenoids/step motors (Rostra), friction kits (Raybestos/Alto), and torque converters (Transtar/Precision). Also get ATSG rebuild manuals and consider ATRA membership for training and technical hotline.</p>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════
+     SECTION 3: ACQUISITION SOURCES
+═════════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-label">03 / Vehicle Acquisition — Every Source</div>
+  <div class="section-title">Where To <span>Buy Cars</span></div>
+
+  <div class="section-label">Backlot Motos = OPENLANE (BacklotCars)</div>
+  <div class="divider"></div>
+
+  <div class="card-blue" style="margin-bottom:32px;">
+    <h3>Backlot Motos Clarification</h3>
+    <p>"Backlot Motos" is likely <strong>BacklotCars</strong>, which was acquired by KAR Global for $425M in 2021 and absorbed into <strong>OPENLANE</strong>. backlotcars.com now redirects to openlane.com. OPENLANE is a dealer-to-dealer digital wholesale marketplace — free to join, $50-$450 per vehicle buy fee, has a REST API, and offers off-lease vehicles, fleet cars, and dealer trade-ins. <strong>Sign up at openlane.com with your dealer license.</strong></p>
+  </div>
+
+  <table>
+    <tr><th>Source</th><th>Type</th><th>Cost to Access</th><th>Buy Fees</th><th>API?</th><th>Best For</th></tr>
+    <tr><td>Copart</td><td>Salvage/Insurance auction</td><td>Free to register</td><td>Variable buyer premiums</td><td>Yes</td><td>Cheapest cars. $800-$2,500. Salvage title vehicles for rebuild.</td></tr>
+    <tr><td>IAAI</td><td>Salvage/Insurance auction</td><td>Free to register</td><td>Variable buyer premiums</td><td>Yes</td><td>Same as Copart. Different inventory pool.</td></tr>
+    <tr><td>OPENLANE (BacklotCars)</td><td>Wholesale dealer-to-dealer</td><td>Free</td><td>$50-$450/vehicle</td><td>Yes (REST API)</td><td>Clean title off-lease and dealer trades. Higher quality.</td></tr>
+    <tr><td>ACV Auctions</td><td>Wholesale digital auction</td><td>Free</td><td>~$360/vehicle total</td><td>Yes (S.A.M. API)</td><td>Most transparent fees. Good for smaller dealers. AI pricing tools.</td></tr>
+    <tr><td>Manheim</td><td>Wholesale auction (physical + digital)</td><td>$103/yr credentialing</td><td>~$700+/vehicle</td><td>Yes</td><td>Largest selection but most expensive. Better for high volume.</td></tr>
+    <tr><td>Dealerslink</td><td>Dealer-to-dealer marketplace</td><td>Subscription</td><td>62% less than vAuto</td><td>Yes</td><td>Inventory management + wholesale buying in one tool.</td></tr>
+    <tr><td>Facebook Marketplace</td><td>Private seller</td><td>Free</td><td>Free</td><td>No</td><td>Private sellers dumping CVT problem cars. $1,500-$3,500.</td></tr>
+    <tr><td>Craigslist</td><td>Private seller</td><td>Free</td><td>Free</td><td>No</td><td>Search "CVT problems" or "transmission issues." $500-$2,000.</td></tr>
+    <tr><td>Local Junkyards/Salvage</td><td>Salvage</td><td>Free</td><td>Negotiated</td><td>No</td><td>Parts cars and cheap rebuilds. $300-$1,200.</td></tr>
+    <tr><td>Inbound (Repair-to-Buy)</td><td>Your own customers</td><td>Free</td><td>Free</td><td>N/A</td><td>Best margins. Buy from repair customers where repair > value.</td></tr>
+  </table>
+
+  <div class="callout-green">
+    <p><strong>Recommended stack:</strong> Copart + IAAI for salvage. OPENLANE + ACV Auctions for wholesale clean-title. Facebook + Craigslist for private seller deals. Inbound repair-to-buy for best margins. Skip Manheim until you're doing 10+ cars/month — their fees eat into margin at low volume.</p>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════
+     SECTION 4: LEGAL, CONTRACTS, INSURANCE
+═════════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-label">04 / Legal, Contracts &amp; Insurance</div>
+  <div class="section-title">What You Need <span>To Be Legal</span></div>
+
+  <div class="grid-2">
+    <div>
+      <div class="section-label">Licenses Required</div>
+      <div class="divider"></div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <div class="step-content">
+            <h4>Used Car Dealer License</h4>
+            <p>From your state's DMV. Requires: physical lot location, surety bond ($25K-$50K typical), zoning approval, pre-licensing course, LLC/Corp, sales tax permit, federal EIN.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <div class="step-content">
+            <h4>Sales Finance Company License</h4>
+            <p>Required in most states if you carry the note in-house. TX, FL, CA, GA, NC, OH, VA all require this. Budget $500-$3,000 for application + annual renewal. Check your state specifically.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <div class="step-content">
+            <h4>Surety Bond</h4>
+            <p>$25,000-$50,000 face value (varies by state). Costs 1-5% of face value per year. A $25K bond = ~$250-$1,250/year.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="section-label">Contracts You Need</div>
+      <div class="divider"></div>
+      <ul class="styled">
+        <li><strong>Retail Installment Sales Contract (RISC)</strong> — THE core finance document. Must include all TILA disclosures (APR, finance charge, amount financed, total of payments, payment schedule). Buy pre-printed forms from Reynolds &amp; Reynolds or Dealer-Legal.com. Do NOT draft your own.</li>
+        <li><strong>Bill of Sale</strong> — Seller info, buyer info, VIN, mileage, price, date, signatures. Many states have official forms.</li>
+        <li><strong>FTC Buyer's Guide</strong> — Must be posted on every car for sale. States as-is or warranty. Purchase pads from dealer supply co.</li>
+        <li><strong>Vehicle Condition Report</strong> — Document condition at sale. Photos + buyer signature. Protects against claims.</li>
+        <li><strong>GPS/Starter-Interrupt Disclosure &amp; Consent</strong> — Separate form. Buyer acknowledges tracker on financed vehicle.</li>
+        <li><strong>ACH Payment Authorization</strong> — For automatic recurring bank drafts.</li>
+        <li><strong>Insurance Acknowledgment</strong> — Buyer acknowledges obligation to maintain full coverage with you as loss payee.</li>
+        <li><strong>Odometer Disclosure Statement</strong> — Federal requirement for vehicles under 20 years old.</li>
+        <li><strong>Privacy Notice</strong> — Gramm-Leach-Bliley Act requirement for handling financial info.</li>
+      </ul>
+      <div class="callout">
+        <p><strong>Must do:</strong> Have an attorney review all contracts before first sale. One-time cost: $1,000-$2,000. Worth every penny.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label" style="margin-top:40px;">Insurance Requirements</div>
+  <div class="divider"></div>
+
+  <table>
+    <tr><th>Coverage</th><th>What It Covers</th><th>Annual Cost</th><th>Required?</th></tr>
+    <tr><td>Dealer/Garage Liability</td><td>Injuries or property damage from dealership operations, test drives, employee driving</td><td>$3,000-$5,000</td><td><span class="badge badge-red">Required</span></td></tr>
+    <tr><td>Lot / Open Lot Insurance</td><td>Damage to your inventory from fire, theft, vandalism, weather</td><td>$1,500-$3,000</td><td><span class="badge badge-red">Required</span></td></tr>
+    <tr><td>General Liability (CGL)</td><td>Slip-and-fall, bodily injury not auto-related, property damage</td><td>$500-$2,000</td><td><span class="badge badge-red">Required</span></td></tr>
+    <tr><td>Garagekeepers</td><td>Damage to customer vehicles in your care (service, pre-delivery)</td><td>$500-$1,500</td><td><span class="badge badge-orange">Recommended</span></td></tr>
+    <tr><td>Surety Bond</td><td>Consumer protection guarantee required for dealer license</td><td>$250-$1,250</td><td><span class="badge badge-red">Required</span></td></tr>
+    <tr><td>Errors &amp; Omissions (E&amp;O)</td><td>Claims you made mistakes in paperwork or disclosures</td><td>$1,000-$2,500</td><td><span class="badge badge-orange">Recommended</span></td></tr>
+    <tr><td>Workers' Comp</td><td>Employee injury coverage</td><td>Varies</td><td><span class="badge badge-red">Required (if employees)</span></td></tr>
+    <tr style="background:rgba(255,92,0,0.1)"><td style="color:var(--orange); font-family:'Bebas Neue'; font-size:16px;">TOTAL ESTIMATE</td><td></td><td style="color:var(--green); font-family:'Bebas Neue'; font-size:18px;">$7,000 - $15,000 / yr</td><td></td></tr>
+  </table>
+</div>
+
+<!-- ════════════════════════════════════════════════════════
+     SECTION 5: IN-HOUSE FINANCING
+═════════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-label">05 / In-House Financing — 10% Return, Not Predatory</div>
+  <div class="section-title">How To <span>Finance Smart</span></div>
+
+  <div class="usp-block">
+    <h2>Use Installment Sale (RISC), Not Lease-to-Own</h2>
+    <p>Lease-to-own adds complexity around title, insurance, registration, and gets recharacterized as a sale in many states anyway. The Retail Installment Sales Contract is simpler, better understood legally, and easier to manage. Buyer gets title with you as lienholder. Same outcome, less hassle.</p>
+  </div>
+
+  <div class="section-label">The Math — How 9.9% APR Gets You Well Over 10% Return</div>
+  <div class="divider"></div>
+
+  <table>
+    <tr><th>Item</th><th>$7,500 Car</th><th>$10,000 Car</th><th>$13,000 Car</th></tr>
+    <tr><td>Your cost (acquisition + retrofit)</td><td>$4,000</td><td>$6,000</td><td>$8,000</td></tr>
+    <tr><td>Sale price</td><td>$7,500</td><td>$10,000</td><td>$13,000</td></tr>
+    <tr><td>Down payment (20%)</td><td>$1,500</td><td>$2,000</td><td>$2,500</td></tr>
+    <tr><td>Amount financed (+ tax/fees)</td><td>~$7,000</td><td>~$9,200</td><td>~$12,000</td></tr>
+    <tr><td>APR</td><td>9.9%</td><td>9.9%</td><td>9.9%</td></tr>
+    <tr><td>Term</td><td>30 months</td><td>36 months</td><td>42 months</td></tr>
+    <tr><td>Monthly payment</td><td>~$265</td><td>~$297</td><td>~$327</td></tr>
+    <tr><td>Total interest collected</td><td>~$950</td><td>~$1,490</td><td>~$2,730</td></tr>
+    <tr><td>Gross profit (markup + interest)</td><td style="color:var(--green); font-weight:700;">$4,450</td><td style="color:var(--green); font-weight:700;">$5,490</td><td style="color:var(--green); font-weight:700;">$7,730</td></tr>
+    <tr><td>Your net capital at risk (cost - down payment)</td><td>$2,500</td><td>$4,000</td><td>$5,500</td></tr>
+    <tr style="background:rgba(0,201,122,0.1)"><td style="color:var(--green); font-family:'Bebas Neue'; font-size:16px;">Annualized ROI on Capital</td><td style="color:var(--green); font-family:'Bebas Neue'; font-size:18px;">~71%</td><td style="color:var(--green); font-family:'Bebas Neue'; font-size:18px;">~46%</td><td style="color:var(--green); font-family:'Bebas Neue'; font-size:18px;">~40%</td></tr>
+  </table>
+
+  <div class="callout-green">
+    <p><strong>At 9.9% APR, most profit comes from vehicle markup</strong> (buy for $6K, sell for $10K), not interest. The interest is a modest bonus. This is clean, defensible, well within legal limits in every state (most caps are 18-30%), and you can advertise "under 10% APR" with zero shame. After factoring in ~10-15% default rate (with GPS trackers), you're still looking at 30%+ annual return on deployed capital.</p>
+  </div>
+
+  <div class="section-label" style="margin-top:32px;">Tech Stack to Run It Hands-Off</div>
+  <div class="divider"></div>
+
+  <div class="grid-2">
+    <div class="card">
+      <h3>DMS — Wayne Reaves or Frazer</h3>
+      <p><strong>Wayne Reaves:</strong> $99-$199/month. Built specifically for BHPH. Includes TILA-compliant contract generation, payment processing, account management, GPS integration, and automated collections workflow.</p>
+      <p style="margin-top:8px;"><strong>Frazer:</strong> $129/month ($1,299/year). 19,000+ dealers use it. Inventory management + syndication + BHPH tools. No setup fees.</p>
+    </div>
+    <div class="card">
+      <h3>GPS + Starter Interrupt</h3>
+      <p><strong>Providers:</strong> Spireon/CalAmp (Goldstar GPS), PassTime, Ituran, ARA GPS.<br>
+      <strong>Cost:</strong> $100-$200 per device + $10-$25/month service.<br>
+      <strong>Impact:</strong> Reduces default/skip rates by 30-50%. Starter-interrupt means buyers call to arrange payment when car won't start — dramatically reduces actual repo costs.<br>
+      <strong>Legal:</strong> Legal in most states with written disclosure and consent. Never disable while in motion. Provide emergency override number.</p>
+    </div>
+  </div>
+
+  <div class="grid-2" style="margin-top:16px;">
+    <div class="card">
+      <h3>ACH Payment Processing</h3>
+      <p>Set up recurring ACH debits aligned with buyer's payday. Most DMS systems include this. Alternatives: Repay, PayNearMe, ACI Speedpay. Cost: $0.25-$1.00 per transaction. For unbanked buyers: PayNearMe (cash at retail locations).</p>
+    </div>
+    <div class="card">
+      <h3>Insurance Monitoring</h3>
+      <p>Use <strong>Verifacto</strong> or <strong>EverDriven</strong> to automatically monitor whether buyer's insurance is active. If it lapses, you get notified immediately. Requirement: Full coverage with your business as loss payee.</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <p><strong>Fully hands-off option:</strong> Third-party servicers like Agora Data, DT Acceptance, or United Acceptance will handle payment processing, collections, and repossession for a fee. They can even buy your notes. Consider this once you have 20+ active financed vehicles.</p>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════
+     SECTION 6: INTAKE SYSTEM + QUESTIONNAIRE
+═════════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-label">06 / Intake System — New Car Intake &amp; Custom Plan</div>
+  <div class="section-title">Every Car Gets <span>A Custom Plan</span></div>
+
+  <p style="color:var(--muted); max-width:700px; font-size:16px; margin-bottom:16px;">Whether a car comes in for repair or comes off auction for resale, it goes through the same intake process. This is the system that makes every car predictable and every repair repeatable.</p>
+
+  <div class="section-label" style="margin-top:24px;">Intake Questionnaire (For Customer Walk-Ins)</div>
+  <div class="divider"></div>
+
+  <div class="grid-2">
+    <div class="card">
+      <h3>Customer Intake Form</h3>
+      <h4>Vehicle Info</h4>
+      <ul class="styled">
+        <li>Year / Make / Model / Trim</li>
+        <li>VIN (auto-decodes transmission type)</li>
+        <li>Current mileage</li>
+        <li>Purchase date / how long owned</li>
+        <li>Maintenance history (fluid changes? when?)</li>
+      </ul>
+      <h4 style="margin-top:16px;">Symptom Checklist</h4>
+      <ul class="styled">
+        <li>Shuddering / juddering at low speed?</li>
+        <li>High RPM without acceleration?</li>
+        <li>Jerking during acceleration?</li>
+        <li>Whining or humming noise?</li>
+        <li>Check engine light on? (which codes?)</li>
+        <li>Overheating warning?</li>
+        <li>Limp mode / stuck in one gear?</li>
+        <li>Delayed engagement (reverse or drive)?</li>
+        <li>Burning smell?</li>
+      </ul>
+      <h4 style="margin-top:16px;">Customer Intent</h4>
+      <ul class="styled">
+        <li>Want to keep and fix the car?</li>
+        <li>Considering selling? (repair-to-buy opportunity)</li>
+        <li>Budget range for repair?</li>
+        <li>Interested in buying a different car from us?</li>
+      </ul>
+    </div>
+    <div>
+      <div class="card" style="margin-bottom:16px;">
+        <h3>Diagnostic Protocol</h3>
+        <h4>Step 1 — OBD Scan</h4>
+        <p>Pull codes. Key CVT codes: P0840, P0868, P0745, P1777, P0730, P0744. Map codes to known failure modes from the knowledge base.</p>
+        <h4 style="margin-top:12px;">Step 2 — Fluid Inspection</h4>
+        <p>Color, smell, metal particles, level. Grade: Green (good), Yellow (degraded), Red (contaminated/metal).</p>
+        <h4 style="margin-top:12px;">Step 3 — Pressure Test</h4>
+        <p>Line pressure at idle, stall, and under load. Compare to spec per unit. Low pressure = regulator or pump issue.</p>
+        <h4 style="margin-top:12px;">Step 4 — Road Test</h4>
+        <p>Check ratio change behavior, shudder zones, engagement quality, noise under load.</p>
+        <h4 style="margin-top:12px;">Step 5 — Generate Custom Plan</h4>
+        <p>Based on symptoms + diagnostics, the system generates a custom repair/retrofit plan with exact parts needed, labor estimate, and cost tiers (basic fix vs. full retrofit vs. reman).</p>
+      </div>
+
+      <div class="card-orange">
+        <h3>The Custom Plan Output</h3>
+        <p>Every car gets a printed/PDF report:</p>
+        <ul class="styled">
+          <li><strong>Vehicle health score</strong> (0-100 based on diagnostics)</li>
+          <li><strong>Failure risk assessment</strong> (what will fail next and when)</li>
+          <li><strong>Recommended repairs</strong> (prioritized by urgency)</li>
+          <li><strong>Cost options</strong> (Tier 1: essential fixes, Tier 2: full retrofit, Tier 3: reman unit)</li>
+          <li><strong>"What the dealer didn't tell you"</strong> — plain-English explanation of the root cause</li>
+          <li><strong>If selling to us:</strong> cash offer based on condition</li>
+        </ul>
+        <p style="margin-top:12px;"><strong>This report IS the sales tool.</strong> Customer sees the detail, trusts the process, and either pays for the fix or sells you the car.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label" style="margin-top:32px;">Acquisition Intake (Cars From Auction/Salvage)</div>
+  <div class="divider"></div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <div class="step-content">
+        <h4>VIN Decode + History Pull</h4>
+        <p>Decode VIN to confirm CVT unit type. Pull CARFAX/AutoCheck. Check for flood, salvage, frame damage flags.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <div class="step-content">
+        <h4>Full Diagnostic (Same Protocol as Walk-In)</h4>
+        <p>OBD scan, fluid inspection, pressure test, road test (if drivable). Grade the transmission.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <div class="step-content">
+        <h4>Generate Retrofit Plan + Cost Sheet</h4>
+        <p>System generates exact parts list, labor hours, and total cost to bring to sellable condition. This becomes the work order.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <div class="step-content">
+        <h4>Go/No-Go Decision</h4>
+        <p>If (acquisition cost + retrofit cost) &lt; 55% of retail value = GO. Otherwise = parts car or pass.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">05</div>
+      <div class="step-content">
+        <h4>Retrofit + QA + List for Sale</h4>
+        <p>Execute the work order. QA road test. Generate the AI diagnostic report. Photograph. List on all platforms.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════
+     SECTION 7: POSTING SYSTEM
+═════════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-label">07 / Posting System — Every Platform, Daily</div>
+  <div class="section-title">Where To <span>Post Cars</span></div>
+
+  <div class="section-label">Free / Low-Cost — Use Immediately</div>
+  <div class="divider"></div>
+
+  <table>
+    <tr><th>Platform</th><th>Cost</th><th>Can Automate?</th><th>Audience</th><th>Notes</th></tr>
+    <tr><td>Facebook Marketplace</td><td>Free</td><td>Yes (Automotive Inventory Ads via feed)</td><td>Retail buyers</td><td>20M+ vehicle listing clicks/month. Your #1 channel.</td></tr>
+    <tr><td>Craigslist</td><td>Free-$5/post</td><td>Yes (MotorLot, WizPoster, Glo3D)</td><td>Local retail</td><td>Still strong for used cars. Automate with posting tools.</td></tr>
+    <tr><td>OfferUp</td><td>Free basic</td><td>Yes (DMS feed for verified dealers)</td><td>Local retail</td><td>Growing fast. Free first listing/month.</td></tr>
+    <tr><td>Google Business Profile</td><td>Free</td><td>Yes (inventory feed)</td><td>Search traffic</td><td>List inventory directly on your Google listing. Free for all dealers.</td></tr>
+    <tr><td>Google Vehicle Listings</td><td>Free</td><td>Yes (structured data feed)</td><td>Google search</td><td>Shows your cars in Google search results. High-intent traffic.</td></tr>
+    <tr><td>CarGurus</td><td>Free basic</td><td>Yes (inventory feed)</td><td>Retail buyers</td><td>Free basic listings. Strong deal-rating algorithm helps price-competitive cars.</td></tr>
+    <tr><td>CarZing</td><td>Free</td><td>Yes (inventory feed)</td><td>Pre-qualified buyers</td><td>Buyers come pre-approved for financing.</td></tr>
+  </table>
+
+  <div class="section-label" style="margin-top:32px;">Paid — Add When Revenue Supports It</div>
+  <div class="divider"></div>
+
+  <table>
+    <tr><th>Platform</th><th>Cost</th><th>Notes</th></tr>
+    <tr><td>TrueCar</td><td>$399/used car sold (no monthly)</td><td>Pay only when you sell. Pre-qualified buyers. Good ROI.</td></tr>
+    <tr><td>eBay Motors</td><td>$80 total per transaction</td><td>$40 to list + $40 at sale. National reach.</td></tr>
+    <tr><td>AutoTrader</td><td>$450+/month</td><td>Massive traffic. Worth it at 10+ cars in inventory.</td></tr>
+    <tr><td>Cars.com</td><td>$2,000-$5,000/month</td><td>Expensive. Only when doing serious volume.</td></tr>
+  </table>
+
+  <div class="section-label" style="margin-top:32px;">Social Media — Organic Content Daily</div>
+  <div class="divider"></div>
+
+  <div class="grid-4">
+    <div class="card">
+      <h3>Facebook Page</h3>
+      <p>Before/after videos, educational posts, car walkarounds. 3-5 posts/week minimum.</p>
+    </div>
+    <div class="card">
+      <h3>Instagram</h3>
+      <p>Reels of repairs, car reveals, customer testimonials. Link inventory in bio.</p>
+    </div>
+    <div class="card">
+      <h3>TikTok</h3>
+      <p>"What the dealer didn't tell you" series. CVT failure explainers. Car flipping content. Huge organic reach.</p>
+    </div>
+    <div class="card">
+      <h3>YouTube</h3>
+      <p>Longer walkaround videos. "We bought a $1,500 Nissan Rogue at auction — here's what we found." Educational SEO play.</p>
+    </div>
+  </div>
+
+  <div class="section-label" style="margin-top:32px;">Automation Tool Stack (Post Once, Appear Everywhere)</div>
+  <div class="divider"></div>
+
+  <div class="grid-2">
+    <div class="card-orange">
+      <h3>Option A: Frazer DMS + Selly CRM</h3>
+      <p><strong>Frazer DMS</strong> ($129/mo) — Inventory management + syndication to major listing sites. Built for independents, 19,000+ dealers use it.</p>
+      <p style="margin-top:8px;"><strong>Selly Automotive CRM</strong> (under $100/mo) — Manages leads from Facebook, email, text, phone in one dashboard. Integrates with Frazer, Wayne Reaves, AutoManager.</p>
+      <p style="margin-top:8px;"><strong>Add:</strong> WizPoster or MotorLot for Craigslist automation. Glo3D for social media auto-posting from inventory.</p>
+      <p style="margin-top:8px;"><strong>Total: ~$250-$350/month for the full stack.</strong></p>
+    </div>
+    <div class="card-orange">
+      <h3>Option B: DealerCenter</h3>
+      <p><strong>DealerCenter</strong> (from $50/mo for BHPH module) — Cloud DMS for 7,600+ dealers. CRM + inventory + lending + syndication all in one. More all-in-one than Frazer but less specialized.</p>
+      <p style="margin-top:8px;">Good if you want one tool instead of multiple. Less flexible but simpler to manage.</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <p><strong>Daily posting rhythm:</strong> When a car is marked "ready for sale" in the DMS, it auto-syndicates to all connected platforms. You manually post a photo/video to Facebook, Instagram, and TikTok with the car's story (what was wrong, what you fixed, price). Total daily time: 30-45 minutes for social content. Everything else is automated.</p>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════
+     SECTION 8: WEBSITE
+═════════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-label">08 / Website — Simple, On VPS</div>
+  <div class="section-title">cvtauthority.com <span>Blueprint</span></div>
+
+  <p style="color:var(--muted); max-width:700px; font-size:16px; margin-bottom:16px;">Simple site. Publish on VPS. Inventory feeds from the DMS. No over-engineering.</p>
+
+  <div class="grid-3">
+    <div class="card">
+      <h3>Homepage</h3>
+      <ul class="styled">
+        <li>Hero: "The CVT Specialists. AI-Powered. Dealer-Beating Prices."</li>
+        <li>3 cards: Fix Your Car / Buy a Car / Sell Your Car</li>
+        <li>Social proof / testimonials</li>
+        <li>Featured inventory (3-4 cars)</li>
+        <li>CTA: Book Free CVT Scan</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>/cars (Inventory)</h3>
+      <ul class="styled">
+        <li>Grid of available cars with photos, price, monthly payment</li>
+        <li>Each car page: photos, AI diagnostic report, "what we fixed," specs, financing calculator</li>
+        <li>CTA: Apply for Financing / Schedule Test Drive</li>
+        <li>Feed from DMS via API or CSV import</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>/free-scan</h3>
+      <ul class="styled">
+        <li>Lead capture form: name, phone, email, car year/make/model, describe symptoms</li>
+        <li>This IS the intake questionnaire (online version)</li>
+        <li>Auto-email confirmation + follow-up sequence</li>
+        <li>Facebook ad traffic lands here</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="grid-3" style="margin-top:16px;">
+    <div class="card">
+      <h3>/sell</h3>
+      <ul class="styled">
+        <li>"We Buy CVT Problem Cars — Cash Today"</li>
+        <li>Form: VIN, mileage, condition, photos upload</li>
+        <li>Auto-generates preliminary offer range</li>
+        <li>CTA: Get Cash Offer</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>/about</h3>
+      <ul class="styled">
+        <li>The story: AI-powered process, thousands of hours of research</li>
+        <li>Team photos</li>
+        <li>The CVT knowledge base (simplified for consumers)</li>
+        <li>"What the dealer didn't tell you" content</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>/apply (Financing)</h3>
+      <ul class="styled">
+        <li>Simple credit app: name, income, employment, references</li>
+        <li>"No credit check required" messaging</li>
+        <li>Displays terms: 9.9% APR, $500-$2,500 down, 24-42 months</li>
+        <li>Leads to DMS for processing</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <p><strong>Tech stack:</strong> Simple static site or lightweight CMS (Next.js, Astro, or even WordPress) on a VPS. Inventory page pulls from DMS API or a JSON feed. Lead forms push to CRM (Selly). Keep it fast, mobile-first, and easy to update. No frameworks-for-the-sake-of-frameworks.</p>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════
+     SECTION 9: DASHBOARD
+═════════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-label">09 / Dashboard — Run the Business</div>
+  <div class="section-title">One Screen <span>To See Everything</span></div>
+
+  <p style="color:var(--muted); max-width:700px; font-size:16px; margin-bottom:16px;">The DMS (Frazer or Wayne Reaves) IS your primary dashboard. But here's what you should see at a glance every morning.</p>
+
+  <div class="grid-4">
+    <div class="card-green">
+      <h3>Inventory</h3>
+      <p>Cars in stock<br>Cars in retrofit<br>Cars listed for sale<br>Days on lot (avg)<br>Cars sold this month</p>
+    </div>
+    <div class="card-orange">
+      <h3>Revenue</h3>
+      <p>Cash sales this month<br>Repair revenue this month<br>Active financed accounts<br>Monthly payment income<br>Total receivables outstanding</p>
+    </div>
+    <div class="card-blue">
+      <h3>Leads</h3>
+      <p>New leads this week<br>Free scan bookings<br>Sell-us-your-car submissions<br>Finance applications<br>Lead-to-close rate</p>
+    </div>
+    <div class="card">
+      <h3>Operations</h3>
+      <p>Cars in intake/diagnostic<br>Active work orders<br>Parts on order<br>Payments past due<br>Repos in process</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <p><strong>Phase 1:</strong> Use the DMS built-in reporting. Frazer and Wayne Reaves both have dashboard views. <strong>Phase 2:</strong> Build a custom dashboard on the VPS that pulls from DMS + CRM + payment processor APIs. This is a future build once the data is flowing and you know exactly what metrics matter.</p>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════
+     SECTION 10: STARTUP BUDGET
+═════════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-label">10 / Startup Budget — What It Actually Costs</div>
+  <div class="section-title">Getting <span>Off The Ground</span></div>
+
+  <table>
+    <tr><th>Item</th><th>Cost</th><th>Notes</th></tr>
+    <tr><td>Dealer license + bond + fees</td><td>$2,000-$5,000</td><td>One-time. Varies by state.</td></tr>
+    <tr><td>Finance license (if required)</td><td>$500-$3,000</td><td>One-time. Check your state.</td></tr>
+    <tr><td>Attorney review of contracts</td><td>$1,000-$2,000</td><td>One-time. Non-negotiable.</td></tr>
+    <tr><td>Insurance (first year)</td><td>$7,000-$15,000</td><td>Annual. See breakdown above.</td></tr>
+    <tr><td>DMS + CRM (first year)</td><td>$3,000-$4,200</td><td>Frazer ($1,299) + Selly (~$1,200) + tools (~$1,200)</td></tr>
+    <tr><td>GPS devices (10 units)</td><td>$1,000-$2,000</td><td>For financed vehicles. $10-25/mo ongoing per unit.</td></tr>
+    <tr><td>Vehicle inventory (5-10 cars)</td><td>$20,000-$60,000</td><td>The big variable. Start with 5 cheaper cars.</td></tr>
+    <tr><td>Parts inventory (initial stock)</td><td>$3,000-$5,000</td><td>Sonnax kits, step motors, fluid, filters, bearing kits.</td></tr>
+    <tr><td>Lot setup (signage, basic office)</td><td>$2,000-$10,000</td><td>Depends on location.</td></tr>
+    <tr><td>Website + VPS</td><td>$500-$1,500</td><td>Simple site. $20-50/mo VPS hosting.</td></tr>
+    <tr><td>ATSG manuals + ATRA membership</td><td>$500-$1,000</td><td>Technical manuals for every CVT unit. Hotline access.</td></tr>
+    <tr style="background:rgba(255,92,0,0.15)"><td style="color:var(--orange); font-family:'Bebas Neue'; font-size:18px;">TOTAL RANGE</td><td style="color:var(--green); font-family:'Bebas Neue'; font-size:22px;" colspan="2">$40,000 — $110,000</td></tr>
+  </table>
+
+  <div class="callout-green">
+    <p><strong>Lean start:</strong> 5 cars at $4K each ($20K), minimal lot, Frazer DMS, free listing platforms only. Total: ~$40K. <strong>Comfortable start:</strong> 10 cars, proper lot, paid platforms, full insurance. Total: ~$80-110K. Most of the capital goes to inventory — everything else is lightweight.</p>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════
+     SECTION 11: EXECUTION ORDER (REVISED — BULLETPROOF VERSION)
+═════════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-label">11 / Execution Order — The Real Sequence</div>
+  <div class="section-title">Bulletproof <span>Launch Plan</span></div>
+
+  <p style="color:var(--muted); max-width:800px; margin-bottom:32px; font-size:16px;">This is a gate-based execution plan, not a calendar fantasy. Each phase has hard prerequisites that must be TRUE before you move forward. The dealer license takes 30-90 days — that wait period is not dead time. It is your build period. Two parallel tracks run simultaneously: <strong style="color:var(--white);">Track A</strong> (repair shop operations — no dealer license needed) and <strong style="color:var(--white);">Track B</strong> (dealer license pipeline — unlocks car sales). You generate revenue from Day 1 on Track A while Track B processes in the background.</p>
+
+  <!-- ── PHASE 0 ── -->
+  <div style="margin-bottom:40px;">
+    <div class="section-label">Phase 0 — Pre-Launch Foundation (Week 1-2)</div>
+    <div class="divider"></div>
+    <p style="color:var(--muted); margin-bottom:16px; font-size:14px;"><strong style="color:var(--yellow);">CRITICAL PATH:</strong> Secure the physical location FIRST. You need the street address for the dealer license application, insurance binding, and business bank account. Nothing else moves until you have a signed lease.</p>
+
+    <div class="grid-2">
+      <div>
+        <p style="color:var(--orange); font-family:'DM Mono'; font-size:11px; letter-spacing:2px; margin-bottom:12px;">LOCATION + LEGAL</p>
+        <ul class="styled">
+          <li><strong>Sign shop/lot lease</strong> — need physical address with zoning for auto repair AND auto sales (verify both with city/county before signing). Minimum: 2-bay garage + small lot for 10-15 cars + small office. Budget: $1,500-$3,500/mo depending on market</li>
+          <li><strong>Form LLC</strong> — file with state, get certificate of formation</li>
+          <li><strong>Get EIN</strong> from IRS (same day, online)</li>
+          <li><strong>Apply for sales tax permit</strong> (state comptroller, 1-2 weeks)</li>
+          <li><strong>Apply for dealer license</strong> — requires: LLC docs, lease/proof of location, zoning approval, surety bond ($25K-$50K bond, costs $250-$1,250 premium), photos of lot/signage. Submit Day 1 of Week 2 at the latest. Clock starts now: 30-90 day wait begins</li>
+          <li><strong>Apply for finance license</strong> if required in your state (check — some states require separate license for BHPH/lease-to-own)</li>
+          <li><strong>Open business bank account</strong> — get a business checking account that supports ACH, wire transfers, and high transaction volume. You will need a separate trust/escrow account later for financed vehicle payments. For now, checking + savings is enough</li>
+          <li><strong>Engage attorney</strong> ($1K-$2K) — review: lease-to-own contract template, buyer's guide/as-is disclosure, mechanic partnership/operating agreement, shop liability waivers</li>
+          <li><strong>Bind insurance</strong> — garage keepers liability, general liability, dealer bond, lot coverage. Cannot operate without this. Get quotes Week 1, bind by end of Week 2</li>
+        </ul>
+      </div>
+      <div>
+        <p style="color:var(--orange); font-family:'DM Mono'; font-size:11px; letter-spacing:2px; margin-bottom:12px;">MECHANIC PARTNERSHIP + ACCOUNTING</p>
+        <ul class="styled">
+          <li><strong>Formalize mechanic partnership</strong> — if your mechanic is a partner, execute an operating agreement defining: equity split or compensation structure (flat rate per job? hourly? profit share?), roles and responsibilities, decision authority, buyout terms. If employee, draft offer letter with pay structure and non-compete</li>
+          <li><strong>Set up bookkeeping from Day 1</strong> — QuickBooks Online or Wave (free). Create chart of accounts: repair revenue, parts COGS, vehicle sales revenue, vehicle COGS, financing income, insurance expense, rent, payroll. Track every dollar from the start. Reconcile weekly. Hire a bookkeeper ($300-$500/mo) or do it yourself, but do NOT wait until Month 3</li>
+          <li><strong>Set up payroll</strong> — Gusto or similar. Even if it is just you and the mechanic, run payroll properly from Day 1. Misclassifying a partner as a 1099 contractor when they work set hours at your shop is an audit risk</li>
+          <li><strong>Get a business credit card</strong> — separate from personal. All parts, tools, and operating expenses go here. Builds business credit from Day 1</li>
+        </ul>
+
+        <div style="margin-top:20px; padding:16px; background:rgba(255,92,0,0.08); border:1px solid rgba(255,92,0,0.2);">
+          <p style="font-family:'DM Mono'; font-size:11px; letter-spacing:2px; color:var(--orange); margin-bottom:8px;">PHASE 0 GATE — DO NOT PROCEED UNTIL:</p>
+          <ul class="styled" style="font-size:13px;">
+            <li>Lease signed and keys in hand</li>
+            <li>LLC formed and EIN obtained</li>
+            <li>Dealer license APPLICATION submitted (not approved — submitted)</li>
+            <li>Insurance bound</li>
+            <li>Business bank account open</li>
+            <li>Mechanic agreement signed</li>
+            <li>Bookkeeping system live</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PHASE 1 ── -->
+  <div style="margin-bottom:40px;">
+    <div class="section-label">Phase 1 — Repair Shop Soft Launch + Build Period (Week 3-8)</div>
+    <div class="divider"></div>
+    <p style="color:var(--muted); margin-bottom:16px; font-size:14px;"><strong style="color:var(--green);">KEY INSIGHT:</strong> You do NOT need a dealer license to repair customer-owned vehicles. This is a general auto repair business. While the dealer license processes, you run as a repair-only shop, generate revenue, build reputation, train the mechanic, create content, and build every system so that the moment the license arrives you are ready to sell cars on Day 1.</p>
+
+    <div class="grid-2">
+      <div>
+        <p style="color:var(--green); font-family:'DM Mono'; font-size:11px; letter-spacing:2px; margin-bottom:12px;">TRACK A — REPAIR SHOP (REVENUE FROM WEEK 3)</p>
+        <ul class="styled">
+          <li><strong>Week 3: Shop setup</strong> — install lifts, organize tooling, set up CVT-specific equipment (flush machine, diagnostic scanner, torque wrenches). Order ATSG manuals + ATRA membership. Set up the shop so it looks professional from Day 1</li>
+          <li><strong>Week 3-4: Begin mechanic training</strong> — start the 60-day CVT specialist training program from Section 8 of the business plan. Week 1-2 of training: Jatco CVT architecture, failure mode identification, valve body teardown and rebuild on a bench unit</li>
+          <li><strong>Week 3: Launch repair marketing</strong> — Facebook business page goes live. First posts: "We just opened. We specialize in Nissan/Jatco CVT transmissions. Free CVT health scan this month." Post in local Facebook groups, Nextdoor, Google Business Profile</li>
+          <li><strong>Week 4-5: First repair customers</strong> — target 5-10 repair jobs in the first 3 weeks. CVT fluid changes ($150-$250), diagnostics ($100-$150), valve body rebuilds ($800-$1,500). This is cash flow AND training reps for the mechanic</li>
+          <li><strong>Week 5-8: Build content library</strong> — photograph and video every repair. "Here is what the inside of a failed Nissan Rogue CVT looks like." "Here is the #1 failure point in a 2013 Altima transmission." This content becomes your marketing engine AND your authority proof</li>
+          <li><strong>Week 5-8: Refine SOPs</strong> — every repair becomes a documented procedure. Intake checklist, diagnostic steps, parts used, labor time, outcome. This builds the knowledge base and training system for future mechanics</li>
+        </ul>
+      </div>
+      <div>
+        <p style="color:var(--blue); font-family:'DM Mono'; font-size:11px; letter-spacing:2px; margin-bottom:12px;">TRACK B — DEALER PIPELINE (NO LICENSE NEEDED YET)</p>
+        <ul class="styled">
+          <li><strong>Week 3-4: Set up DMS + CRM</strong> — Frazer DMS or Wayne Reaves. Selly CRM. Configure before you need them so you are not scrambling when the license arrives</li>
+          <li><strong>Week 3-4: Open wholesale parts accounts</strong> — Transtar, Sonnax, Rostra, Nissan dealer wholesale. Order initial parts inventory: Sonnax valve body kits, step motors, CVT fluid (cases), bearing kits, filters, gaskets</li>
+          <li><strong>Week 4-5: Register on auction platforms</strong> — Copart, IAAI, OPENLANE, ACV Auctions. Most require dealer license to BUY, but you can register, get approved, and be ready to bid the day your license arrives. Some allow registration with "license pending" status</li>
+          <li><strong>Week 4-5: Order GPS devices</strong> — 10 units. Test installation on a shop vehicle or your personal car. Verify tracking platform works, test geofencing, confirm starter-interrupt function</li>
+          <li><strong>Week 5-6: Build website</strong> — simple site on VPS. Pages: Home, CVT Repair Services, Vehicles For Sale (coming soon), About/Why We Are Different, Contact/Book Appointment. SEO target: "[your city] CVT transmission repair"</li>
+          <li><strong>Week 5-6: Set up listing platforms</strong> — Facebook Marketplace profile, Craigslist account, CarGurus dealer account (pending license), AutoTrader (pending license). Configure Craigslist automation tool</li>
+          <li><strong>Week 7-8: Build Facebook ad campaigns (do not launch yet)</strong> — create Campaign 1 (CVT problem owners), Campaign 2 (car buyers), Campaign 3 (buy cars from owners). Have creative, targeting, and landing pages ready. Launch Campaign 1 for repairs immediately. Hold Campaign 2 until dealer license arrives</li>
+          <li><strong>Week 6-8: Scout inventory sources</strong> — attend auctions as observer (most allow this without a license). Browse Copart/IAAI online to understand pricing. Identify Facebook Marketplace sellers with CVT-problem cars. Build a list of 10-20 target vehicles so you can buy fast when licensed</li>
+        </ul>
+
+        <div style="margin-top:20px; padding:16px; background:rgba(0,201,122,0.08); border:1px solid rgba(0,201,122,0.2);">
+          <p style="font-family:'DM Mono'; font-size:11px; letter-spacing:2px; color:var(--green); margin-bottom:8px;">PHASE 1 GATE — DO NOT PROCEED TO PHASE 2 UNTIL:</p>
+          <ul class="styled" style="font-size:13px;">
+            <li>Dealer license IN HAND (approved, printed, posted on wall)</li>
+            <li>Mechanic has completed minimum 4 weeks of CVT training</li>
+            <li>Minimum 5 repair jobs completed successfully</li>
+            <li>DMS and CRM configured and tested</li>
+            <li>Website live</li>
+            <li>At least 1 wholesale parts order received and stocked</li>
+            <li>GPS devices tested and working</li>
+            <li>Attorney-reviewed sales contracts and lease-to-own agreements ready</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PHASE 2 ── -->
+  <div style="margin-bottom:40px;">
+    <div class="section-label">Phase 2 — Dealer Launch: First Cars (Week 9-12, or whenever license arrives)</div>
+    <div class="divider"></div>
+    <p style="color:var(--muted); margin-bottom:16px; font-size:14px;"><strong style="color:var(--orange);">THE LICENSE IS HERE.</strong> Everything you built in Phase 1 pays off now. You already have a running shop, a trained mechanic, repair revenue, content, and a configured tech stack. You are not starting from zero — you are adding a sales channel to an operating business.</p>
+
+    <div class="grid-2">
+      <div>
+        <p style="color:var(--orange); font-family:'DM Mono'; font-size:11px; letter-spacing:2px; margin-bottom:12px;">FIRST 2 WEEKS AFTER LICENSE</p>
+        <ul class="styled">
+          <li><strong>Day 1: Source first 3-5 cars</strong> — hit the auction platforms you already registered on. Buy from your pre-scouted list. Target: Nissan Rogues, Altimas, Sentras with known CVT issues, priced $2,000-$5,000 at auction</li>
+          <li><strong>Day 1: Activate dealer accounts</strong> — upload license to Copart, IAAI, OPENLANE, ACV. Activate CarGurus and AutoTrader dealer profiles</li>
+          <li><strong>Day 2-14: Run intake protocol on each car</strong> — full diagnostic, document every issue, photograph everything, create repair plan. This is the process you already refined on 5+ customer repair jobs</li>
+          <li><strong>Day 2-14: Begin retrofits</strong> — valve body rebuild, fluid flush, step motor replacement, bearing check on each unit. Target: 1 car completed every 3-4 days with one mechanic</li>
+          <li><strong>Day 7: List first completed car</strong> — all platforms simultaneously. Facebook Marketplace, Craigslist (automated), CarGurus, your website. Include full diagnostic report and repair documentation as the sales differentiator</li>
+        </ul>
+      </div>
+      <div>
+        <p style="color:var(--orange); font-family:'DM Mono'; font-size:11px; letter-spacing:2px; margin-bottom:12px;">WEEKS 3-4 AFTER LICENSE</p>
+        <ul class="styled">
+          <li><strong>Launch all Facebook campaigns</strong> — Campaign 1 (CVT repair customers, already running), Campaign 2 (car buyers, new), Campaign 3 (buy cars from owners, new). Budget: $500-$1,000/mo total to start</li>
+          <li><strong>Process first in-house financed sale</strong> — lease-to-own or BHPH. Install GPS before delivery. Collect down payment ($500-$1,000). Set up payment schedule in DMS. Document everything</li>
+          <li><strong>Continue repair operations</strong> — do not neglect the repair side. This is steady cash flow that does not depend on selling a car. Target: 8-12 repair jobs per month alongside car sales</li>
+          <li><strong>Start weekly educational content rhythm</strong> — "CVT failure of the week" post, before/after repair videos, customer testimonials. Post consistently every Tuesday and Thursday minimum</li>
+          <li><strong>Set up escrow/trust accounting</strong> — if doing in-house financing, consult your attorney and accountant about whether your state requires a separate trust account for customer payments. Set this up BEFORE the first financed payment is due</li>
+        </ul>
+
+        <div style="margin-top:20px; padding:16px; background:rgba(255,92,0,0.08); border:1px solid rgba(255,92,0,0.2);">
+          <p style="font-family:'DM Mono'; font-size:11px; letter-spacing:2px; color:var(--orange); margin-bottom:8px;">PHASE 2 GATE — DO NOT PROCEED TO PHASE 3 UNTIL:</p>
+          <ul class="styled" style="font-size:13px;">
+            <li>Minimum 3 cars sold or placed in lease-to-own</li>
+            <li>First financed customer has made at least 2 on-time payments</li>
+            <li>Repair revenue covering at least 50% of monthly fixed costs (rent + insurance + payroll)</li>
+            <li>All listing platforms active and generating leads</li>
+            <li>Mechanic can complete a full CVT retrofit independently (no hand-holding)</li>
+            <li>Bookkeeping current — P&L statement available within 48 hours of month-end</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PHASE 3 ── -->
+  <div style="margin-bottom:40px;">
+    <div class="section-label">Phase 3 — Growth + Optimization (Month 3-6)</div>
+    <div class="divider"></div>
+
+    <div class="grid-2">
+      <div>
+        <p style="color:var(--orange); font-family:'DM Mono'; font-size:11px; letter-spacing:2px; margin-bottom:12px;">MONTH 3-4: OPTIMIZE + PROVE THE MODEL</p>
+        <ul class="styled">
+          <li><strong>Target: 4-6 cars sold/month + 15-20 repairs/month</strong></li>
+          <li>Analyze which acquisition channels produce the best margin cars (auction vs. Facebook vs. owner-direct buys)</li>
+          <li>Analyze which sales channels produce the fastest sales (Marketplace vs. Craigslist vs. CarGurus)</li>
+          <li>Optimize ad spend — kill underperforming campaigns, double down on winners</li>
+          <li>Build lease-to-own portfolio — target 8-12 active financed vehicles generating $2,400-$3,600/mo in recurring payments</li>
+          <li>Quarterly tax payment — if you did not set this up, you owe estimated quarterly taxes. Your bookkeeper should have this calendared</li>
+          <li>Review insurance coverage — now that you have real inventory and financed vehicles on the road, verify your coverage matches your actual exposure</li>
+        </ul>
+      </div>
+      <div>
+        <p style="color:var(--orange); font-family:'DM Mono'; font-size:11px; letter-spacing:2px; margin-bottom:12px;">MONTH 5-6: SCALE</p>
+        <ul class="styled">
+          <li><strong>Hire second mechanic</strong> — use the training system you built. The first mechanic is now your trainer/lead tech. Second mechanic doubles shop throughput</li>
+          <li><strong>Expand vehicle coverage</strong> — add Honda CVT models (HR-V, Civic with CVT) and Mitsubishi (Outlander, Lancer) to your buy list. Same Jatco platform, similar failure modes, already in your knowledge base</li>
+          <li><strong>Add paid advertising platforms</strong> — Google Ads (search: "CVT transmission repair near me", "used Nissan Rogue for sale [city]"). Budget: $500-$1,000/mo on top of Facebook spend</li>
+          <li><strong>Build referral program</strong> — offer existing customers $200 referral bonus for every buyer they send who completes a purchase. Offer repair customers 10% off next service for referrals</li>
+          <li><strong>Evaluate lot expansion</strong> — if you are consistently selling 6+ cars/month and lot space is the constraint, look for a larger lot or a second display location</li>
+          <li><strong>Begin documenting for replication</strong> — every SOP, every process, every training module. This is the foundation for opening a second location or licensing the model to other shops</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── RISK REGISTER ── -->
+  <div style="margin-bottom:40px;">
+    <div class="section-label">First 90-Day Risk Register</div>
+    <div class="divider"></div>
+    <p style="color:var(--muted); margin-bottom:16px; font-size:14px;">These are the things most likely to derail you. Each one has a mitigation. No surprises.</p>
+
+    <table>
+      <tr><th style="width:25%;">Risk</th><th style="width:15%;">Likelihood</th><th style="width:15%;">Impact</th><th style="width:45%;">Mitigation</th></tr>
+      <tr>
+        <td><strong>Dealer license delayed beyond 90 days</strong></td>
+        <td><span class="badge badge-yellow">Medium</span></td>
+        <td><span class="badge badge-red">High</span></td>
+        <td>Track A (repair shop) generates revenue while you wait. Call the licensing office every 2 weeks for status. Ensure your application had zero errors — most delays are from incomplete paperwork. Have your attorney follow up if it exceeds 60 days</td>
+      </tr>
+      <tr>
+        <td><strong>Cannot find suitable lot with proper zoning</strong></td>
+        <td><span class="badge badge-yellow">Medium</span></td>
+        <td><span class="badge badge-red">High</span></td>
+        <td>Start looking BEFORE you do anything else. Talk to a commercial real estate agent who specializes in auto lots. Check zoning BEFORE signing — auto sales zoning is more restrictive than auto repair in most jurisdictions. Have 3 backup locations identified</td>
+      </tr>
+      <tr>
+        <td><strong>First retrofit takes 2-3x longer than expected</strong></td>
+        <td><span class="badge badge-red">High</span></td>
+        <td><span class="badge badge-yellow">Medium</span></td>
+        <td>Expected. Your first car is a learning experience, not a profit center. Budget 2x the labor time on the first 3 cars. Use ATRA hotline for technical support. Document every snag — this feeds the SOP and prevents repeat delays</td>
+      </tr>
+      <tr>
+        <td><strong>First financed buyer defaults immediately</strong></td>
+        <td><span class="badge badge-yellow">Medium</span></td>
+        <td><span class="badge badge-yellow">Medium</span></td>
+        <td>GPS + starter interrupt installed on every financed vehicle. Collect minimum $1,000 down so you are not upside-down on repossession. Verify income and references before approval. Budget for 15-20% default rate in your financial projections — if it is lower, that is profit</td>
+      </tr>
+      <tr>
+        <td><strong>Mechanic quits or partnership breaks down</strong></td>
+        <td><span class="badge badge-yellow">Medium</span></td>
+        <td><span class="badge badge-red">High</span></td>
+        <td>Operating agreement with clear exit terms. All SOPs documented in the knowledge base, not in the mechanic's head. Cross-train yourself on basic diagnostics so you can limp along. Start recruiting second mechanic by Month 3 regardless — never be one person away from shutdown</td>
+      </tr>
+      <tr>
+        <td><strong>Auction cars worse than expected</strong></td>
+        <td><span class="badge badge-yellow">Medium</span></td>
+        <td><span class="badge badge-yellow">Medium</span></td>
+        <td>Your first 3-5 cars should come from Facebook/Craigslist where you can inspect before buying. Auctions are cheaper but higher risk. Set a hard max bid on every auction car: purchase price + estimated repair must not exceed 60% of retail target. Walk away from bad deals</td>
+      </tr>
+      <tr>
+        <td><strong>Cash flow crunch in Month 2-3</strong></td>
+        <td><span class="badge badge-red">High</span></td>
+        <td><span class="badge badge-red">High</span></td>
+        <td>Repair revenue from Track A is your bridge. Keep 60-90 days of fixed costs ($8K-$15K) in reserve at all times. Do not tie up all capital in inventory — start with 3-5 cars, not 10. Lease-to-own payments are monthly recurring cash, but they take time to build. Be conservative with inventory expansion until monthly cash flow is positive</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ── VISUAL TIMELINE ── -->
+  <div style="margin-bottom:40px;">
+    <div class="section-label">Realistic Timeline — What Actually Happens</div>
+    <div class="divider"></div>
+
+    <table>
+      <tr><th>Week</th><th>Track A (Repairs — No License Needed)</th><th>Track B (Dealer Pipeline)</th><th>Revenue</th></tr>
+      <tr><td><strong>1-2</strong></td><td>Sign lease, set up shop space</td><td>Form LLC, submit dealer license app, bind insurance, attorney, bank account, mechanic agreement, bookkeeping</td><td>$0</td></tr>
+      <tr><td><strong>3-4</strong></td><td>Install equipment, begin mechanic training, launch repair marketing, first 2-3 repair customers</td><td>Set up DMS + CRM, open parts accounts, order inventory, register auction platforms, order GPS devices</td><td>$500-$1,500 (repairs)</td></tr>
+      <tr><td><strong>5-6</strong></td><td>5-8 repair jobs, refine SOPs, photograph every repair, post content</td><td>Build website, set up listing platforms, build Facebook ad campaigns (draft), scout auction inventory</td><td>$2,000-$4,000 (repairs)</td></tr>
+      <tr><td><strong>7-8</strong></td><td>10+ repair jobs, mechanic progressing on training, content library growing</td><td>Website live, ads ready to launch, vehicle target list built, all systems configured and tested</td><td>$3,000-$5,000 (repairs)</td></tr>
+      <tr style="background:rgba(255,92,0,0.1)"><td><strong>9-10</strong></td><td colspan="2" style="color:var(--orange);"><strong>DEALER LICENSE ARRIVES (estimated) — Buy first 3-5 cars, begin retrofits, list first car by end of Week 10, launch all ad campaigns</strong></td><td>$3,000-$5,000 (repairs) + first car listed</td></tr>
+      <tr><td><strong>11-12</strong></td><td>12-15 repairs/month</td><td>First 2-3 cars sold or placed in lease-to-own, second batch sourced</td><td>$5,000-$10,000 (repairs + first sales)</td></tr>
+      <tr><td><strong>13-16</strong></td><td>15-20 repairs/month</td><td>4-6 cars/month through the shop, lease-to-own portfolio building</td><td>$10,000-$20,000/month (combined)</td></tr>
+      <tr><td><strong>17-24</strong></td><td>Hire second mechanic, expand repair volume</td><td>Add Honda/Mitsubishi models, add Google Ads, build referral program</td><td>$15,000-$30,000/month (combined)</td></tr>
+    </table>
+
+    <p style="color:var(--muted); margin-top:16px; font-size:13px;"><strong style="color:var(--yellow);">NOTE:</strong> If the dealer license arrives faster (30 days), compress Phases 1 and 2 — but do NOT skip the repair soft launch. Those first repair jobs train your mechanic, build content, prove your SOPs, and generate cash. If the license takes the full 90 days, you will have a fully operational repair shop with revenue, a trained mechanic, a content library, and every system ready. Either way, you win.</p>
+  </div>
+
+  <!-- ── BOTTOM LINE ── -->
+  <div style="margin-top:40px; padding:32px; background:var(--steel-light); border-left:4px solid var(--orange);">
+    <div class="section-label">The Bottom Line</div>
+    <p style="font-size:18px; max-width:800px; color:var(--white); line-height:1.7;">The old plan assumed a straight line from LLC formation to car sales in 8 weeks. Reality: the dealer license is a 30-90 day bottleneck, and you cannot legally buy or sell cars for resale without it. This revised plan turns that wait into your <strong style="color:var(--orange);">competitive advantage</strong>. You open as a repair shop on Day 15, generate cash from Week 3, train your mechanic under real conditions, build your content library, and configure every system. When the license arrives, you do not "launch" — you <strong style="color:var(--orange);">add a sales channel to a business that is already running</strong>. DMS handles inventory and financing. CRM handles leads. Posting tools handle distribution. GPS handles collections risk. The AI knowledge base handles diagnostics. Your mechanic handles the wrenching. You handle marketing and deal-making. The whole thing runs on about <strong style="color:var(--orange);">$350/month in software</strong> and scales by adding cars and mechanics.</p>
+  </div>
+</div>
+
+<div style="padding:48px 60px; text-align:center; background:var(--steel); border-top:2px solid var(--orange);">
+  <div style="font-family:'Bebas Neue'; font-size:14px; letter-spacing:4px; color:var(--muted); text-transform:uppercase;">CVT Authority &middot; Master Action Plan &middot; March 2026</div>
+</div>
+
+</body>
+</html>

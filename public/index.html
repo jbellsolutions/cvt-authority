@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CVT Authority — Project Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --white: #f5f3ee;
+    --orange: #ff5c00;
+    --steel: #1c1f24;
+    --steel-light: #2a2d34;
+    --muted: #7a7e88;
+    --border: rgba(255,255,255,0.08);
+    --green: #00c97a;
+    --yellow: #ffd000;
+    --red: #ff4444;
+    --blue: #4a9eff;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  .hero {
+    background: var(--steel);
+    padding: 80px 60px 60px;
+    border-bottom: 3px solid var(--orange);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: 'CVT';
+    position: absolute;
+    right: -20px;
+    top: -30px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 320px;
+    color: rgba(255,92,0,0.04);
+    line-height: 1;
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 8vw, 110px);
+    line-height: 0.95;
+    letter-spacing: 1px;
+    margin-bottom: 24px;
+  }
+  .hero h1 span { color: var(--orange); }
+  .hero-sub {
+    font-size: 18px;
+    color: var(--muted);
+    max-width: 650px;
+    line-height: 1.6;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 40px;
+  }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(32px, 5vw, 56px);
+    line-height: 1;
+    letter-spacing: 1px;
+    margin-bottom: 32px;
+  }
+  .section-title span { color: var(--orange); }
+
+  .divider {
+    height: 2px;
+    background: linear-gradient(90deg, var(--orange), transparent);
+    margin: 8px 0 40px;
+  }
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .doc-card {
+    background: var(--steel-light);
+    border: 1px solid var(--border);
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.2s, transform 0.2s;
+    text-decoration: none;
+    color: inherit;
+  }
+  .doc-card:hover {
+    border-color: var(--orange);
+    transform: translateY(-4px);
+  }
+  .doc-card .doc-icon {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    color: var(--orange);
+    line-height: 1;
+    margin-bottom: 16px;
+    opacity: 0.6;
+  }
+  .doc-card h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    letter-spacing: 0.5px;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+  .doc-card p {
+    color: var(--muted);
+    font-size: 14px;
+    flex-grow: 1;
+    margin-bottom: 20px;
+  }
+  .doc-card .doc-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    font-size: 10px;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    align-self: flex-start;
+  }
+  .badge-primary {
+    background: rgba(255,92,0,0.15);
+    color: var(--orange);
+    border: 1px solid rgba(255,92,0,0.3);
+  }
+  .badge-green {
+    background: rgba(0,201,122,0.15);
+    color: var(--green);
+    border: 1px solid rgba(0,201,122,0.3);
+  }
+  .badge-blue {
+    background: rgba(74,158,255,0.15);
+    color: var(--blue);
+    border: 1px solid rgba(74,158,255,0.3);
+  }
+  .badge-yellow {
+    background: rgba(255,208,0,0.15);
+    color: var(--yellow);
+    border: 1px solid rgba(255,208,0,0.3);
+  }
+
+  /* SITEMAP TABLE */
+  .sitemap-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 24px;
+  }
+  .sitemap-table th {
+    background: var(--orange);
+    color: var(--black);
+    text-align: left;
+    padding: 12px 16px;
+    font-size: 11px;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .sitemap-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .sitemap-table tr:hover td {
+    background: rgba(255,92,0,0.04);
+    color: var(--white);
+  }
+  .sitemap-table td:first-child { color: var(--white); font-weight: 500; }
+  .sitemap-table a {
+    color: var(--orange);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .sitemap-table a:hover { text-decoration: underline; }
+
+  /* MASTER PLAN SECTIONS LIST */
+  .plan-section {
+    display: flex;
+    gap: 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+  .plan-section:last-child { border-bottom: none; }
+  .plan-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    color: var(--orange);
+    opacity: 0.4;
+    min-width: 48px;
+    line-height: 1;
+  }
+  .plan-content h4 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+  .plan-content p { color: var(--muted); font-size: 13px; }
+
+  .footer {
+    padding: 40px 60px;
+    text-align: center;
+    background: var(--steel);
+    border-top: 2px solid var(--orange);
+  }
+  .footer p {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 14px;
+    letter-spacing: 4px;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 768px) {
+    .hero { padding: 48px 24px; }
+    .container { padding: 40px 24px; }
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-eyebrow">Internal Project Hub &middot; March 2026</div>
+  <h1>CVT <span>Authority</span></h1>
+  <p class="hero-sub">AI-powered CVT transmission repair, acquisition, resale &amp; lease-to-own. Everything you need to run the business is linked below.</p>
+</div>
+
+<div class="container">
+  <div class="section-label">Documents</div>
+  <div class="section-title">Project <span>Documents</span></div>
+  <div class="divider"></div>
+
+  <div class="grid-2">
+    <a href="/master-plan.html" class="doc-card">
+      <div class="doc-icon">01</div>
+      <h3>Final Master Action Plan</h3>
+      <p>The complete, Devil's-Advocate-reviewed business playbook. 11 sections covering vehicle scope, suppliers, acquisition, legal, financing, intake system, posting, website, dashboard, budget, and execution. This is the primary document.</p>
+      <span class="doc-badge badge-primary">Primary Document</span>
+    </a>
+
+    <a href="/business-plan.html" class="doc-card">
+      <div class="doc-icon">02</div>
+      <h3>Original Business Plan</h3>
+      <p>The initial business plan with revenue model, USP, Facebook marketing campaigns, mechanic training program, recruiting process, and 90-day launch phases. Foundational reference.</p>
+      <span class="doc-badge badge-green">Reference</span>
+    </a>
+
+    <a href="/master-plan-v1.html" class="doc-card">
+      <div class="doc-icon">03</div>
+      <h3>Master Plan V1 (Draft)</h3>
+      <p>The first iteration of the master action plan before the 3-agent review pipeline. Useful for comparing what changed during the Devil's Advocate, QA, and Final Assembly process.</p>
+      <span class="doc-badge badge-yellow">Archive</span>
+    </a>
+
+    <a href="/sitemap.html" class="doc-card">
+      <div class="doc-icon">&#8962;</div>
+      <h3>Full Sitemap</h3>
+      <p>Complete index of every page and section on this site. Quick-jump to any part of the plan.</p>
+      <span class="doc-badge badge-blue">Navigation</span>
+    </a>
+  </div>
+</div>
+
+<div class="container" style="padding-top:0;">
+  <div class="section-label">What's Inside the Final Master Plan</div>
+  <div class="section-title">11 Sections <span>Fully Reviewed</span></div>
+  <div class="divider"></div>
+
+  <div class="plan-section">
+    <div class="plan-num">01</div>
+    <div class="plan-content">
+      <h4>Vehicle Scope &mdash; Narrowed &amp; Validated</h4>
+      <p>Tier 1 Jatco (Nissan, Jeep, Dodge, Mitsubishi), Tier 2 Subaru + Honda expansion, Tier 3 Toyota. Toyota Camry/Matrix/Sienna and Lexus RX removed (no CVT). NHTSA data and class action references included. Years expanded to 2003-2020.</p>
+    </div>
+  </div>
+  <div class="plan-section">
+    <div class="plan-num">02</div>
+    <div class="plan-content">
+      <h4>Parts Suppliers &mdash; Wholesale Accounts &amp; Pricing</h4>
+      <p>Specific part numbers, wholesale costs, full JF011E rebuild cost ($1,219-$1,762). Tooling list ($16,900). Startup inventory ($3,800-$5,500). Core charges. Belt sourcing strategy. Reman unit sources.</p>
+    </div>
+  </div>
+  <div class="plan-section">
+    <div class="plan-num">03</div>
+    <div class="plan-content">
+      <h4>Vehicle Acquisition &mdash; Every Source</h4>
+      <p>Copart, IAAI, OPENLANE, ACV Auctions, Facebook, Craigslist, inbound repair-to-buy. Salvage title BHPH conflict resolved. Landed costs. Transport logistics. Title verification. Search strategies.</p>
+    </div>
+  </div>
+  <div class="plan-section">
+    <div class="plan-num">04</div>
+    <div class="plan-content">
+      <h4>Legal, Contracts &amp; Insurance</h4>
+      <p>Dealer + finance licenses. 9 contracts needed. Insurance revised to $9-22K/year (added product liability, cyber, umbrella). FTC CARS Rule. Lemon law states. AI marketing claims. Entity structure.</p>
+    </div>
+  </div>
+  <div class="plan-section">
+    <div class="plan-num">05</div>
+    <div class="plan-content">
+      <h4>In-House Financing &mdash; 9.9% APR</h4>
+      <p>Realistic ROI: 28-41% after defaults. Tiered down payments. Collections timeline day-by-day. GAP coverage. Capital planning. Credit reporting framework. GPS/starter-interrupt.</p>
+    </div>
+  </div>
+  <div class="plan-section">
+    <div class="plan-num">06</div>
+    <div class="plan-content">
+      <h4>Intake System &amp; Custom Plan</h4>
+      <p>40+ DTC codes by unit. 100-point health score methodology. 5-tier go/no-go matrix. Equipment list ($8,500-$13,000). 4-tier warranty policy. Customer flow. Online lead follow-up sequences.</p>
+    </div>
+  </div>
+  <div class="plan-section">
+    <div class="plan-num">07</div>
+    <div class="plan-content">
+      <h4>Posting System &mdash; Every Platform, Daily</h4>
+      <p>All free + paid platforms. Facebook dealer requirements. Craigslist risk. Weekly content calendar. Local SEO. Review generation. Email/SMS sequences. Marketing budget: $1,500-$2,200/month.</p>
+    </div>
+  </div>
+  <div class="plan-section">
+    <div class="plan-num">08</div>
+    <div class="plan-content">
+      <h4>Website Blueprint</h4>
+      <p>6 pages. DMS integration specifics. AI diagnostic report structure. Mobile-first. Trust signals. Chat/SMS. Privacy/security. Schema markup. Analytics. Offer estimation logic.</p>
+    </div>
+  </div>
+  <div class="plan-section">
+    <div class="plan-num">09</div>
+    <div class="plan-content">
+      <h4>Dashboard &mdash; Run the Business</h4>
+      <p>25+ KPIs with formulas. DMS API reality check (no public APIs). 7 alert triggers. 9-stage retrofit Kanban. Airtable+Retool Phase 1.5. 15-minute daily morning routine.</p>
+    </div>
+  </div>
+  <div class="plan-section">
+    <div class="plan-num">10</div>
+    <div class="plan-content">
+      <h4>Startup Budget &mdash; Real Numbers</h4>
+      <p>Monthly burn: $16,100. Tools: $16,900. Revised lean minimum: $144K. Recommended: $213K. Break-even analysis. 6-month cash flow model. Growth funding options.</p>
+    </div>
+  </div>
+  <div class="plan-section">
+    <div class="plan-num">11</div>
+    <div class="plan-content">
+      <h4>Execution Order &mdash; Dual Track</h4>
+      <p>Track A (repair shop, revenue from Week 3) + Track B (dealer license pipeline). Phase gates. Risk register with 7 risks + mitigations. Revenue timeline Week 1 through Month 6.</p>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <p>CVT Authority &middot; Internal Project Hub &middot; March 2026</p>
+</div>
+
+</body>
+</html>
